@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+<!--Author: Brandon Bustos, Delaney McDonnell, and Joe Meskin-->
+<head>
+    <meta charset='UTF-8'>
+    <title>Find Your Career Path</title> <!--Project Name-->
+</head>
+<body style='background-color:orange;'>
+    <h1 style='color:aqua; border:2px solid blue;
+    background-color: blue; text-align:center;'>Find Your Career Path</h1>
+ 
+    <!--Introduction-->
+    <h3>Instructions</h3>
+    <p>This program will help you decide whether to pursue a career in Art or Business. In order
+        for it to be the most accurate, you must answer all the questions honestly. To select an
+        answer, simply click the drop down menu and choose the option you most agree with. When
+        you have answered all the questions, press the Find My Career Button. </p><hr>
+    <!--Start of Questions-->
+    <label>Choose what best describes you</label><br>
+    <select id='Q1'>
+        <option value='2000' disable>Please Choose...</option>
+        <option value='5'>I think of myself as a creative thinker.</option>
+        <option value='3'>I think of myself as neither a creative nor logical thinker.</option>
+        <option value='1'>I think of myself as a logical thinker.</option>
+    </select>
+    <br><br>
+    <label>I enjoy working 9 to 5 in an office.</label><br>
+    <select id='Q2'>
+        <option value='2000' disable>Please Choose...</option>
+        <option value='5'>Agree</option>
+        <option value='3'>Indifferent</option>
+        <option value='1'>Disagree</option>
+    </select>
+    <br><br>
+    <label>I enjoy creating new things that inspire people.</label><br>
+    <select id='Q3'>
+        <option value='2000' disable>Your rating...</option>
+        <option value='5'>Agree</option>
+        <option value='3'>Indifferent</option>
+        <option value='1'>Disagree</option>
+    </select>
+    <br><br>
+<!--The button that tells the program to calculate the compatability and bring the user
+        to the end of the program-->
+    <button type='button' onclick='calculateCareerPath()'>Find My Career</button>
+    <h3 id='total'></h3>
+    <h3 id='calculation'></h3>
+    <script>
+    function calculateCareerPath() {
+     
+        const DESIRED_RESPONSE = [ 5, 5, 5, 5, 5];
+        const WEIGHT = [ 3, 2, 1, 3, 1]
+        const MAX_SCORE = [50];
+
+        //Pulls the values associated with the responses from the user
+        let question1Response = document.getElementById('Q1').selectedOptions[0].value;
+        let question2Response = document.getElementById('Q2').selectedOptions[0].value;
+        let question3Response = document.getElementById('Q3').selectedOptions[0].value;
+        let question4Response = document.getElementById('Q4').selectedOptions[0].value;
+        let question5Response = document.getElementById('Q5').selectedOptions[0].value;
+
+        //Gives an error message if one of the dropdown menus is not changed to a different option
+    if (question1Response == 2000)
+        {alert("Please select an answer. " +
+        "Then press the 'Find My Career' button again for accurate results.")}
+    if (question2Response == 2000)
+        {alert("Please select an answer. " +
+        "Then press the 'Find My Career' button again for accurate results.")}
+    if (question3Response == 2000)
+        {alert("Please select an answer. " +
+        "Then press the 'Find My Career' button again for accurate results.")}
+    if (question4Response == 2000)
+        {alert("Please select an answer. " +
+        "Then press the 'Find My Career' button again for accurate results.")}
+    if (question5Response == 2000)
+        {alert("Please select an answer. " +
+        "Then press the 'Find My Career' button again for accurate results.")}
+    if (question6Response == 2000)
+        {alert("Please select an answer. " +
+        "Then press the 'Find My Career' button again for accurate results.")}
+    if (question7Response == 2000)
+        {alert("Please select an answer. " +
+        "Then press the 'Find My Career' button again for accurate results.")}
+    if (question8Response == 2000)
+        {alert("Please select an answer. " +
+        "Then press the 'Find My Career' button again for accurate results.")}
+    if (question9Response == 2000)
+        {alert("Please select an answer. " +
+        "Then press the 'Find My Career' button again for accurate results.")}
+    if (question10Response == 2000)
+        {alert("Please select an answer. " +
+        "Then press the 'Find My Career' button again for accurate results.")}
+     
+        //Calculates the compatability of the users' response
+        let question1Compatability = 5 - Math.abs(question1Response - DESIRED_RESPONSE[0]);
+        let question2Compatability = 5 - Math.abs(question2Response - DESIRED_RESPONSE[1]);
+        let question3Compatability = 5 - Math.abs(question3Response - DESIRED_RESPONSE[2]);
+        let question4Compatability = 5 - Math.abs(question4Response - DESIRED_RESPONSE[3]);
+        let question5Compatability = 5 - Math.abs(question5Response - DESIRED_RESPONSE[4]);
+        
+        let totalCompatability = (
+            question1Compatability * WEIGHT[0] +
+            question2Compatability * WEIGHT[1] +
+            question3Compatability * WEIGHT[2] +
+            question4Compatability * WEIGHT[3] +
+            question5Compatability * WEIGHT[4]);
+     
+        totalCompatability *= 100/MAX_SCORE;
+        totalCompatability = Math.round(totalCompatability);
+           
+        //This is the end result classification code.
+        //This determines which end result message is displayed.
+        let userResponse = ('');
+        if (totalCompatability > 75){
+            userResponse += ('Congratulations!! You should pursue a career in art! You are creative')}
+        else if (35 > totalCompatability){
+            userResponse += ('Congratulations!! You should pursue a career in business! You are task driven' +
+            'and enjoy the comforts of working at a desk')}
+        else if (75 > totalCompatability){
+            userResponse += ('You could be a Possible Acquaintance!! Congratulations on finishing' +
+            ' the questions even if we do not have the same interests! Thank you for your time.' +
+            ' See you in class!!')}
+
+        document.getElementById('total').innerHTML = totalCompatability;
+        document.getElementById('calculation').innerHTML = userResponse;
+        }</script>
+</body>
+</html>    
