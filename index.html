@@ -34,7 +34,63 @@
     <br><br>
     <label>I enjoy creating new things that inspire people.</label><br>
     <select id='Q3'>
-        <option value='2000' disable>Your rating...</option>
+        <option value='2000' disable>Please Choose...</option>
+        <option value='5'>Agree</option>
+        <option value='3'>Indifferent</option>
+        <option value='1'>Disagree</option>
+    </select>
+    <br><br>
+    <label>I enjoy creating new things that inspire people.</label><br>
+    <select id='Q4'>
+        <option value='2000' disable>Please Choose...</option>
+        <option value='5'>Agree</option>
+        <option value='3'>Indifferent</option>
+        <option value='1'>Disagree</option>
+    </select>
+    <br><br>
+    <label>I enjoy creating new things that inspire people.</label><br>
+    <select id='Q5'>
+        <option value='2000' disable>Please Choose...</option>
+        <option value='5'>Agree</option>
+        <option value='3'>Indifferent</option>
+        <option value='1'>Disagree</option>
+    </select>
+    <br><br>
+    <label>I enjoy creating new things that inspire people.</label><br>
+    <select id='Q6'>
+        <option value='2000' disable>Please Choose...</option>
+        <option value='5'>Agree</option>
+        <option value='3'>Indifferent</option>
+        <option value='1'>Disagree</option>
+    </select>
+    <br><br>
+    <label>I enjoy creating new things that inspire people.</label><br>
+    <select id='Q7'>
+        <option value='2000' disable>Please Choose...</option>
+        <option value='5'>Agree</option>
+        <option value='3'>Indifferent</option>
+        <option value='1'>Disagree</option>
+    </select>
+    <br><br>
+    <label>I enjoy creating new things that inspire people.</label><br>
+    <select id='Q8'>
+        <option value='2000' disable>Please Choose...</option>
+        <option value='5'>Agree</option>
+        <option value='3'>Indifferent</option>
+        <option value='1'>Disagree</option>
+    </select>
+    <br><br>
+    <label>I enjoy creating new things that inspire people.</label><br>
+    <select id='Q9'>
+        <option value='2000' disable>Please Choose...</option>
+        <option value='5'>Agree</option>
+        <option value='3'>Indifferent</option>
+        <option value='1'>Disagree</option>
+    </select>
+    <br><br>
+    <label>I enjoy creating new things that inspire people.</label><br>
+    <select id='Q10'>
+        <option value='2000' disable>Please Choose...</option>
         <option value='5'>Agree</option>
         <option value='3'>Indifferent</option>
         <option value='1'>Disagree</option>
@@ -58,6 +114,11 @@
         let question3Response = document.getElementById('Q3').selectedOptions[0].value;
         let question4Response = document.getElementById('Q4').selectedOptions[0].value;
         let question5Response = document.getElementById('Q5').selectedOptions[0].value;
+        let question6Response = document.getElementById('Q6').selectedOptions[0].value;
+        let question7Response = document.getElementById('Q7').selectedOptions[0].value;
+        let question8Response = document.getElementById('Q8').selectedOptions[0].value;
+        let question9Response = document.getElementById('Q9').selectedOptions[0].value;
+        let question10Response = document.getElementById('Q10').selectedOptions[0].value;
 
         //Gives an error message if one of the dropdown menus is not changed to a different option
     if (question1Response == 2000)
@@ -91,19 +152,19 @@
         {alert("Please select an answer. " +
         "Then press the 'Find My Career' button again for accurate results.")}
      
-        //Calculates the compatability of the users' response
-        let question1Compatability = 5 - Math.abs(question1Response - DESIRED_RESPONSE[0]);
-        let question2Compatability = 5 - Math.abs(question2Response - DESIRED_RESPONSE[1]);
-        let question3Compatability = 5 - Math.abs(question3Response - DESIRED_RESPONSE[2]);
-        let question4Compatability = 5 - Math.abs(question4Response - DESIRED_RESPONSE[3]);
-        let question5Compatability = 5 - Math.abs(question5Response - DESIRED_RESPONSE[4]);
+        //Calculates the career path of the users' response
         
         let totalCompatability = (
-            question1Compatability * WEIGHT[0] +
-            question2Compatability * WEIGHT[1] +
-            question3Compatability * WEIGHT[2] +
-            question4Compatability * WEIGHT[3] +
-            question5Compatability * WEIGHT[4]);
+            question1Response +
+            question2Response +
+            question3Response +
+            question4Response +
+            question5Response +
+            question6Response +
+            question7Response +
+            question8Response +
+            question9Response +
+            question10Response);
      
         totalCompatability *= 100/MAX_SCORE;
         totalCompatability = Math.round(totalCompatability);
